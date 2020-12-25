@@ -1,0 +1,26 @@
+asgiref==3.3.1
+astroid @ file:///C:/ci/astroid_1592487315634/work
+autopep8 @ file:///tmp/build/80754af9/autopep8_1596578164842/work
+boto3==1.16.43
+botocore==1.19.43
+certifi==2020.12.5
+colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+Django==3.1.4
+django-crispy-forms==1.10.0
+django-storages==1.11.1
+isort @ file:///tmp/build/80754af9/isort_1602603989581/work
+jmespath==0.10.0
+lazy-object-proxy @ file:///C:/b/work
+mccabe==0.6.1
+Pillow==8.0.1
+pycodestyle==2.6.0
+pylint @ file:///C:/ci/pylint_1598617153160/work
+python-dateutil==2.8.1
+pytz==2020.4
+s3transfer==0.3.3
+six @ file:///C:/ci/six_1605187374963/work
+sqlparse==0.4.1
+toml @ file:///tmp/build/80754af9/toml_1592853716807/work
+urllib3==1.26.2
+wincertstore==0.2
+wrapt==1.11.2
