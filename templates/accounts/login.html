@@ -1,10 +1,14 @@
 {%  extends 'base\index.html'  %}
 {% block body %}
-    <div class="form">
+
+    <div class="form form__signin">
+        <p class="form_title">Sign In</p>
         <form action="{%  url 'accounts:login'  %}" method="post">
             {%  csrf_token  %}
-            {{form}}
-            <button type="submit">SignIn</button>
+            {{form.username}}
+            {{  form.password  }}
+            <button class="btn_submit primary" type="submit">Register</button>
         </form>
     </div>
+
 {% endblock body %}
