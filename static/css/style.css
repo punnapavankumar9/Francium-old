@@ -3,6 +3,9 @@
     margin: 0px;
     box-sizing: border-box;
 }
+.main_container{
+    margin-top: 45px;
+}
 .nav{
     display: flex;
     flex-wrap: wrap;

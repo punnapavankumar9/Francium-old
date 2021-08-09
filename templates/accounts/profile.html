@@ -1,0 +1,13 @@
+{%  extends 'base\index.html'  %}
+{% block body %}
+    {%  if perm  %}
+    {{  usr_form.username  }}
+    {{  usr_form.email  }}
+    {{  usr_form.first_name  }}
+    {{  usr_form.last_name  }}
+    {{  profile_form.gender  }}
+    {{  profile_form.profile_pic  }}
+    {%  else  %}
+    {{  user_profile.get_gender_display  }}
+    {%  endif  %}
+{% endblock body %}

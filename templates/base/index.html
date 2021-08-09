@@ -1,16 +1,10 @@
 {%  extends 'base\base.html'  %}  
-{%  load static  %}
-{% block extra_body %}
-    <link rel="stylesheet" href="{%  static 'css/style.css'  %}">
-{% endblock extra_body %}
 {% block navbar %}
     {%  include 'base\nav.html'  %}  
 {% endblock navbar %}
+    {% block body %}
 
-{% block body %}
-    
-{% endblock body %}
-
+    {% endblock body %}
 
 {% block footer %}
     

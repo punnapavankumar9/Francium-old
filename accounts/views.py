@@ -1,9 +1,11 @@
+from django import core
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .forms import UserSignUpForm, UserLoginForm
-
+from django.contrib.auth.decorators import login_required
+from .forms import UserSignUpForm, UserLoginForm, UserProfileForm, UserUpdateForm
+from .models import UserPofile
 # Create your views here.
 
 def signup_view(request):
@@ -41,3 +43,34 @@ def logout_view(request):
     logout(request)
     messages.info(request, "logged out successfull")
     return redirect('core:index')
+
+@login_required
+def profile_view(request, username):
+    if(request.method == 'POST'):
+        if(request.user.username == username):
+            usr_form = UserUpdateForm(request.POST)
+            profile_form = UserProfileForm(request.POST)
+            if(usr_form.is_valid() and profile_form.is_valid()):
+                usr_form.save()
+                profile_form.save()
+                messages.success(request, "Profile updated successfully.")
+                return redirect('accounts:profile')
+        else:
+            messages.warning(request, "You don't access to the profile")
+            return redirect('core:index')
+    else:
+        if(request.user.username == username):
+            usr_form = UserUpdateForm()
+            profile_form = UserProfileForm()
+            context = {}
+            context['perm'] = True
+            context['usr_form'] = usr_form
+            context['profile_form'] = profile_form
+            context['name'] = "punnasd"
+            return render(request, 'accounts/profile.html', context)
+        else:
+            context = {}
+            context['perm'] = False
+            user_profile = UserPofile.objects.get(user__username = username)
+            context['user_profile'] = user_profile
+            return render(request, 'accounts/profile.html', context)
