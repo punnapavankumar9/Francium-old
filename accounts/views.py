@@ -60,8 +60,9 @@ def profile_view(request, username):
             return redirect('core:index')
     else:
         if(request.user.username == username):
-            usr_form = UserUpdateForm()
-            profile_form = UserProfileForm()
+            user = User.objects.get(username = username)
+            usr_form = UserUpdateForm(instance = user)
+            profile_form = UserProfileForm(instance=user.profile)
             context = {}
             context['perm'] = True
             context['usr_form'] = usr_form
@@ -72,5 +73,6 @@ def profile_view(request, username):
             context = {}
             context['perm'] = False
             user_profile = UserPofile.objects.get(user__username = username)
+            
             context['user_profile'] = user_profile
             return render(request, 'accounts/profile.html', context)

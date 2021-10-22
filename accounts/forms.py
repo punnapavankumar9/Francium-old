@@ -38,3 +38,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserPofile
         fields = ['gender', 'profile_pic']
+    def __init__(self,*args, **kwargs):
+        super(UserProfileForm ,self).__init__(*args, ** kwargs)
+        self.fields['gender'].widget.attrs.update({'class': 'form_input drop_down_select', 'placeholder': 'gender'})
+        self.fields['profile_pic'].widget.attrs.update({'class': 'form_input', 'type':'image', 'placeholder': 'profile_pic'})

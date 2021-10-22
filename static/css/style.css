@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
 }
-ul > li {
+li{
     list-style: none;
 }
 ul > li > a {
@@ -93,4 +93,35 @@ form{
 .primary{
     color: white;
     background-color: rgb(70, 70, 228);
+}
+.profile{
+    width: 90vw;
+    margin: 10px auto;
+}
+.main_head{
+    text-align: center;
+    font-size: 1.2rem;
+}
+.profile_details{
+    display: flex;
+    width: 400px;
+    margin: 10px auto;
+    font-size: 1.1em;
+    letter-spacing: .134px;
+}
+.left_profile_info{
+    margin-right: 50px;
+}
+.profile_img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgb(128, 82, 82);
+}
+.profile_form{
+    width: 500px;
+    
+}
+.drop_down_select{
+    width: min-content;
 }

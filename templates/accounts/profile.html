@@ -1,13 +1,39 @@
 {%  extends 'base\index.html'  %}
 {% block body %}
     {%  if perm  %}
-    {{  usr_form.username  }}
-    {{  usr_form.email  }}
-    {{  usr_form.first_name  }}
-    {{  usr_form.last_name  }}
-    {{  profile_form.gender  }}
-    {{  profile_form.profile_pic  }}
+    
+    <form action="" method="POST" class="form profile_form">
+        <p class="form_title">Profile</p>
+        {{  usr_form.username  }}
+        {{  usr_form.email  }}
+        {{  usr_form.first_name  }}
+        {{  usr_form.last_name  }}
+        {{  profile_form.gender  }}
+        {{  profile_form.profile_pic  }}
+    </form>
     {%  else  %}
-    {{  user_profile.get_gender_display  }}
+    <div class="profile">
+        <div class="main_head">
+            <img class="profile_img" src="{{  user_profile.profile_pic.url  }}" alt="">
+            <p class="profile_username">Pavankumarpunna9</p>
+        </div>
+        <div class="profile_details">
+            <div class="left_profile_info">
+                <li>Email :</li>
+                <li>Gender :</li>
+                <li>First name :</li>
+                <li>Last name :</li>
+            </div>
+            <div class="right_profile_info">
+                <li>{{  user_profile.user.email  }}</li>
+                <li>{{  user_profile.get_gender_display  }}</li>
+                <li>{% if user_profile.user.first_name  %}{{  user_profile.user.first_name   }} {%  else  %} <span>&nbsp;&nbsp;-</span>
+                {%  endif  %}</li>
+                <li>{% if user_profile.user.last_name  %}{{  user_profile.user.last_name   }} {%  else  %} <span>&nbsp;&nbsp;-</span>
+                    {{%  endif  %}
+                </li>
+            </div>            
+        </div>
+    </div>
     {%  endif  %}
 {% endblock body %}
