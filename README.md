@@ -1,7 +1,7 @@
 # Francium
 web blog
 
-this repo called web-blog is a web app created by me to enhance my django skills
+This repo called web-blog is a web app created by me to enhance my django skills
 
 ![another user profile](https://user-images.githubusercontent.com/67155391/138436536-ce469d37-bb79-4004-a74c-c8c0d3e1888f.png)
 
